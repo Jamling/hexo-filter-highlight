@@ -1,6 +1,6 @@
 ## Introducation
 
-![screenshot](https://raw.githubusercontent.com/Jamling/hexo-filter-highlight/screenshot.png)
+![screenshot](https://github.com/Jamling/hexo-filter-highlight/blob/master/screenshot.png)
 
 Highlight plugin using [highlight.js] for Hexo. This plugin not highlight when generating, you must highlight your code in front-end.
 
