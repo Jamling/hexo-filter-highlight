@@ -1,0 +1,103 @@
+## Introducation
+
+![screenshot](https://raw.githubusercontent.com/Jamling/hexo-filter-highlight/screenshot.png)
+
+Highlight plugin using [highlight.js] for Hexo. This plugin not highlight when generating, you must highlight your code in front-end.
+
+Optionally, if you using [Backtick Code Block](https://hexo.io/docs/tag-plugins.html#Backtick-Code-Block) style to insert code block, close the default highlight of hexo, your page will display unnormally, you can use this plugin to instead.
+
+You can visit my [blog](http://www.ieclipse.cn/2016/08/10/Web/hexo-filter-highlight/) to see the highlight result.
+
+## Feautre
+
+- Using [highlight.js] freely
+- Trim indent of code block
+- Code line numbering support
+- Code block copy support
+
+## Install 
+
+``` bash
+$ npm install hexo-filter-highlight --save
+```
+
+Then set `enable: false` to turn off the hexo highlight in `_config.yml` under blog.
+
+## Config
+
+### backend
+config `_config.yml` under your blog
+
+``` yaml
+# hexo-filter-plugin (https://github.com/Jamling/hexo-filter-highlight) config 
+## highlight in frontend, the plugin (backend) just do some prepare work.
+## you need to read the docs on https://github.com/Jamling/hexo-filter-highlight to getting start
+hljs:
+  enable: true #true to enable the plugin
+  line_number: frontend # add line_number in frontend or backend
+  trim_indent: backend # trim the indent of code block to prettify output. backend or front-end (recommend)
+  copy_code: true # show copy code in caption.
+  label:
+    left: Code
+    right: ':'
+    copy: Copy Code
+```
+
+### frontend
+
+Import highlight js and style css  in your `<head></head>`
+
+``` html
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+```
+
+Then add highlight script after document loaded, such as under document.onready().
+
+- Simply
+
+```js
+$(document).ready(function(){
+    hljs.initHighlightingOnLoad();
+);
+```
+
+- Normally, insert following script after the document loaded
+
+```js
+  $('pre code').each(function(i, block) {
+    var texts = $(this).text().split('\n');
+     if (trim_indent){
+      var tab = texts[0].match(/^\s{0,}/);
+      if (tab) {
+        var arr = [];
+        texts.forEach(function(temp) {
+          arr.push(temp.replace(tab, ''));
+        });
+        $(this).text(arr.join('\n'));
+      }
+    }
+    if (line_number) {
+      console.log("show line number in front-end");
+      var lines = texts.length - 1;
+      var $numbering = $('<ul/>').addClass('pre-numbering');
+      $(this).addClass('has-numbering').parent().append($numbering);
+      for (i = 1; i <= lines; i++) {
+        $numbering.append($('<li/>').text(i));
+      }
+    }
+    hljs.highlightBlock(block);
+```
+
+- Advancely
+
+See [hljs.js] under [Nova] theme.
+
+## License
+
+MIT
+
+[Hexo]: http://hexo.io/
+[highlight.js]: https://highlightjs.org/
+[Nova]: https://github.com/Jamling/hexo-theme-nova/
+[hljs.js]: https://github.com/Jamling/hexo-theme-nova/blob/master/source/js/hljs.js
