@@ -4,7 +4,7 @@
   "description": "Highlight plugin using highlight.js for Hexo.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "keywords": [
     "Hexo",
