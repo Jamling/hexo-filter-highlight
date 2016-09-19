@@ -69,7 +69,7 @@ module.exports = function(data) {
     }
     
     if (position === 'outer') {
-      caption = `<div class="${className}" ${data_set}>${caption}</div>`;
+      caption = `\n<p class="${className}" ${data_set}>${caption}</p>`;
       return caption + '\n' + tag + ' ' + lang + ' \n' + code + '\n' + tag + end;
     } else if (position === 'inner'){
       // TODO has issue.
