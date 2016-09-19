@@ -10,6 +10,10 @@
     "Hexo",
     "Highlight"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jamling/hexo-filter-highlight.git"
+  },
   "dependencies": {
     "html-entities": "^1.2.0"
   },
