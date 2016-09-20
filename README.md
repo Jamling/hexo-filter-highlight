@@ -54,8 +54,8 @@ hljs:
 Import highlight js and style css  in your `<head></head>`
 
 ``` html
-<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
-<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.6.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.6.0/highlight.min.js"></script>
 ```
 
 Then add highlight script after document loaded, such as under document.onready().
@@ -71,8 +71,10 @@ $(document).ready(function(){
 - Normally, insert following script after the document loaded
 
 ```js
+  // enable highlight
   $('pre code').each(function(i, block) {
     var texts = $(this).text().split('\n');
+     // trim indent
      if (trim_indent){
       var tab = texts[0].match(/^\s{0,}/);
       if (tab) {
@@ -83,6 +85,7 @@ $(document).ready(function(){
         $(this).text(arr.join('\n'));
       }
     }
+    // add line number
     if (line_number) {
       console.log("show line number in front-end");
       var lines = texts.length - 1;
@@ -92,12 +95,19 @@ $(document).ready(function(){
         $numbering.append($('<li/>').text(i));
       }
     }
+    // hightlight
     hljs.highlightBlock(block);
 ```
 
 - Advancely
 
 See [hljs.js] under [Nova] theme.
+
+Last add your css to control the code block and line number.
+See [nova.scss] under [Nova] theme.
+
+## Refer
+See [My Blog](http://www.ieclipse.cn/tags/Hexo/) for more information.
 
 ## License
 
@@ -107,3 +117,4 @@ MIT
 [highlight.js]: https://highlightjs.org/
 [Nova]: https://github.com/Jamling/hexo-theme-nova/
 [hljs.js]: https://github.com/Jamling/hexo-theme-nova/blob/master/source/js/hljs.js
+[nova.scss]: https://github.com/Jamling/hexo-theme-nova/blob/master/source/css/bs/nova.scss
