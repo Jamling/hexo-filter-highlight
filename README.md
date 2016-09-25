@@ -65,12 +65,14 @@ Then add highlight script after document loaded, such as under document.onready(
 ```js
 $(document).ready(function(){
     hljs.initHighlightingOnLoad();
-);
+});
 ```
 
 - Normally, insert following script after the document loaded
 
 ```js
+  var trim_indent = true;
+  var line_number = true;
   // enable highlight
   $('pre code').each(function(i, block) {
     var texts = $(this).text().split('\n');
