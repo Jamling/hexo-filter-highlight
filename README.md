@@ -6,7 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/hexo-filter-highlight.svg)](https://www.npmjs.com/package/hexo-filter-highlight)
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-filter-highlight.svg)](https://github.com/Jamling/hexo-filter-highlight/releases/latest)
 
-# Introduction
+## Introduction
 
 ![screenshot](https://github.com/Jamling/hexo-filter-highlight/blob/master/screenshot.png)
 
