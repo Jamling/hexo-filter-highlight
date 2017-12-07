@@ -1,10 +1,12 @@
+# hexo-filter-highlight
+
 [![Build Status](https://travis-ci.org/Jamling/hexo-filter-highlight.svg?branch=master)](https://travis-ci.org/Jamling/hexo-filter-highlight)
 [![node](https://img.shields.io/node/v/hexo-filter-highlight.svg)](https://www.npmjs.com/package/hexo-filter-highlight)
 [![npm downloads](https://img.shields.io/npm/dt/hexo-filter-highlight.svg)](https://www.npmjs.com/package/hexo-filter-highlight)
 [![npm version](https://img.shields.io/npm/v/hexo-filter-highlight.svg)](https://www.npmjs.com/package/hexo-filter-highlight)
 [![GitHub release](https://img.shields.io/github/release/jamling/hexo-filter-highlight.svg)](https://github.com/Jamling/hexo-filter-highlight/releases/latest)
 
-## Introducation
+## Introduction
 
 ![screenshot](https://github.com/Jamling/hexo-filter-highlight/blob/master/screenshot.png)
 
