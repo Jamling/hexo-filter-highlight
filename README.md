@@ -42,7 +42,7 @@ config `_config.yml` under your blog
 ## you need to read the docs on https://github.com/Jamling/hexo-filter-highlight to getting start
 hljs:
   enable: true #true to enable the plugin
-  line_number: frontend # add line_number in frontend or backend
+  line_number: frontend # add line_number in frontend or backend (not recommend, have bugs in special hexo version)
   trim_indent: backend # trim the indent of code block to prettify output. backend or front-end (recommend)
   copy_code: true # show copy code in caption.
   label:

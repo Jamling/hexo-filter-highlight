@@ -1,8 +1,9 @@
 'use strict';
-var Entities = require('html-entities').XmlEntities;
-var entities = new Entities();
+//var Entities = require('html-entities').XmlEntities;
+//var entities = new Entities();
 
 module.exports = function(data) {
+  var hexo = this;
   var hljs = this.config.hljs || {};
   if (!hljs.enable) return;
   
@@ -68,8 +69,23 @@ module.exports = function(data) {
        code = trim_indent(code);
     }
     
+    if (hljs.line_number === 'backend') {
+        var codeClass = lang ? ` class="has-numbering hljs ${lang}"` : 'has-numbering hljs';
+        var codeLines = code.split('\n').length;
+        var ul = '<ul class="pre-numbering">';
+        for(var i = 1; i <= codeLines.length; i++) {
+            ul += '<li>' + i + '</li>';
+        }
+        ul += '</ul>';
+        caption = `\n<p class="${className}" ${data_set}>${caption}</p>\n`;
+        //var ret = `${caption}<pre><code${codeClass}>\n${code}\n</code>\n${ul}\n</pre>\n`;
+        var ret = `${caption}\n${tag} ${lang}\n${code}\n${tag}${end}`;
+        hexo.log.w(ret);
+        return ret;
+    }
+    
     if (position === 'outer') {
-      caption = `\n<p class="${className}" ${data_set}>${caption}</p>`;
+      caption = `\n<p class="${className}" ${data_set}>${caption}</p>\n`;
       return caption + '\n' + tag + ' ' + lang + ' \n' + code + '\n' + tag + end;
     } else if (position === 'inner'){
       // TODO has issue.
